@@ -14,16 +14,7 @@ public class MatrixMultiply {
 
     private MatrixMultiply() {}
 
-    /**
-     * <p>
-     * A Java 8 stream based version of the matrix multiply algorithm that uses streams
-     * to parallelize the dot product calculation.
-     * </p>
-     * @param matA an N rows X M columns
-     * @param matB an M rows X P columns
-     * @return matC an N rows X P columns
-     */
-    public static Matrix matmultStream(Matrix matA, Matrix matB) {
+    public static final BinaryOperator<Matrix> matmultStream = (matA, matB) -> {
         Matrix matC = new Matrix();
         var matArows = matA.getNumRows();
         var matAcols = matA.getNumCols();
@@ -45,7 +36,7 @@ public class MatrixMultiply {
                     );
         }
         return matC;
-    }
+    };
 
 
     public static final BinaryOperator<Matrix> matmult = (matA, matB) -> {

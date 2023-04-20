@@ -55,7 +55,7 @@ public class TestMatrixMultiply extends TestMatrixBase {
     public void testParallelMatrixMult() {
         Matrix matA = new Matrix(matAlist);
         Matrix matB = new Matrix(matBlist);
-        Matrix matC = MatrixMultiply.matmultStream(matA, matB);
+        Matrix matC = MatrixMultiply.matmultStream.apply(matA, matB);
         matrixEqualsRows(matC, matClist);
     }
 }
