@@ -47,7 +47,7 @@ public class TestMatrixMultiply extends TestMatrixBase {
     public void testMatrixMult() {
         Matrix matA = new Matrix(matAlist);
         Matrix matB = new Matrix(matBlist);
-        Matrix matC = MatrixMultiply.matmult(matA, matB);
+        Matrix matC = MatrixMultiply.matmult.apply(matA, matB);
         matrixEqualsRows(matC, matClist);
     }
 

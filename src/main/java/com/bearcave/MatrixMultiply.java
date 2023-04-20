@@ -1,6 +1,7 @@
 
 package com.bearcave;
 
+import java.util.function.BinaryOperator;
 import java.util.stream.IntStream;
 
 /**
@@ -47,14 +48,7 @@ public class MatrixMultiply {
     }
 
 
-    /**
-     * Matrix multiply via the classic matrix multiply algorithm
-     *
-     * @param matA an N rows X M columns
-     * @param matB an M rows X P columns
-     * @return matC an N rows X P columns
-     */
-    public static Matrix matmult(Matrix matA, Matrix matB) {
+    public static final BinaryOperator<Matrix> matmult = (matA, matB) -> {
         Matrix matC = new Matrix();
         var matArows = matA.getNumRows();
         var matAcols = matA.getNumCols();
@@ -77,7 +71,7 @@ public class MatrixMultiply {
             }
         }
         return matC;
-    }
+    };
 
 
 }
